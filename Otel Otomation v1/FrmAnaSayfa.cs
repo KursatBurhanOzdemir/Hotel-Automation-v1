@@ -31,7 +31,19 @@ namespace Hotel_Automation_v1
         {
             FrmYeniMusteri frmYeniMusteri = new FrmYeniMusteri();
             frmYeniMusteri.Show();
-            this.Hide();
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmMusteriler frmMusteriler = new FrmMusteriler();
+            frmMusteriler.Show();
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
