@@ -18,7 +18,7 @@ namespace Hotel_Automation_v1
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAdminGiris());
+            Application.Run(new FrmAnaSayfa());
         }
     }
 }

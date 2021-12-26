@@ -84,7 +84,9 @@ namespace Hotel_Automation_v1
         {
             connection.Open();
             SqlCommand komut = new SqlCommand("delete from MusteriEkle where MusteriId=(" + id + ")", connection);
+            SqlCommand komut2 = new SqlCommand("delete from Oda" + TxtOdaNo.Text, connection);
             komut.ExecuteNonQuery();
+            komut2.ExecuteNonQuery();
             connection.Close();
             listView1.Items.Clear();
             VerileriGoster();

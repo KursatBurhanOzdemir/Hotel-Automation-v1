@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Otel_Automation_v1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,8 +43,10 @@ namespace Hotel_Automation_v1
         }
 
         private void button3_Click(object sender, EventArgs e)
+            
         {
-
+            FrmOdalar frmOdalar = new FrmOdalar();
+            frmOdalar.Show();
         }
     }
 }

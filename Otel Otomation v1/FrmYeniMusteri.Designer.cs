@@ -106,6 +106,7 @@ namespace Hotel_Automation_v1
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cinsiyet:";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label11
             // 
@@ -263,6 +264,7 @@ namespace Hotel_Automation_v1
             this.TxtAdi.Name = "TxtAdi";
             this.TxtAdi.Size = new System.Drawing.Size(245, 27);
             this.TxtAdi.TabIndex = 45;
+            this.TxtAdi.TextChanged += new System.EventHandler(this.TxtAdi_TextChanged);
             // 
             // label6
             // 
@@ -563,6 +565,7 @@ namespace Hotel_Automation_v1
             this.MinimizeBox = false;
             this.Name = "FrmYeniMusteri";
             this.Text = "Çıkış Tarihi:";
+            this.Load += new System.EventHandler(this.FrmYeniMusteri_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

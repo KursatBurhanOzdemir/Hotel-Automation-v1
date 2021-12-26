@@ -267,6 +267,7 @@ namespace Otel_Automation_v1
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmOdalar";
             this.Text = "FrmOdalar";
+            this.Load += new System.EventHandler(this.FrmOdalar_Load);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
