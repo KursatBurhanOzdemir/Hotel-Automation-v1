@@ -39,8 +39,9 @@ namespace Hotel_Automation_v1
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(490, 268);
+            this.label1.Location = new System.Drawing.Point(494, 268);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 24);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@ namespace Hotel_Automation_v1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(572, 328);
+            this.label2.Location = new System.Drawing.Point(576, 328);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 24);
             this.label2.TabIndex = 1;
@@ -92,6 +93,9 @@ namespace Hotel_Automation_v1
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = global::Otel_Automation_v1.Properties.Resources.photo_1596386461350_326ccb383e9f;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(887, 450);
             this.Controls.Add(this.BtnGirisYap);
             this.Controls.Add(this.TxtKullanıcıAdi);

@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Hotel_Automation_v1
 {
+
     public partial class FrmAdminGiris : Form
     {
         public FrmAdminGiris()
         {
             InitializeComponent();
         }
+        SqlConnection connection = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = HotelDb; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -29,15 +33,32 @@ namespace Hotel_Automation_v1
 
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            if (TxtKullanıcıAdi.Text=="kursat" && TxdSifre.Text=="1234" )
+            try
             {
-                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
-                frmAnaSayfa.Show();
-                this.Hide();
+                connection.Open();
+                string sql = "select * from AdminGiris where KullaniciAdi=@kullanici AND Sifre=@sifre";
+                //Trim Parametre olarak girilen değerlerdeki boşluk karakterlerini kaldırır. 
+                SqlParameter sqlParameter = new SqlParameter("kullanici", TxtKullanıcıAdi.Text.Trim());
+                SqlParameter sqlParameter1 = new SqlParameter("sifre", TxdSifre.Text.Trim());
+                SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                sqlCommand.Parameters.Add(sqlParameter);
+                sqlCommand.Parameters.Add(sqlParameter1);
+                //sanal tablo oluşturuyoruz 
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count>0)
+                {
+                    FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                    frmAnaSayfa.Show();
+                    this.Hide();
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Kullanıcı adı veya şifre hatalı");
+
+                MessageBox.Show("Kullanıcı Adı Veya Şifre Hatalı!!!");
             }
         }
     }

@@ -83,9 +83,8 @@ namespace Hotel_Automation_v1
         private void BtnSil_Click(object sender, EventArgs e)
         {
             connection.Open();
-            SqlCommand komut = new SqlCommand("delete from MusteriEkle where MusteriId=(" + id + ")", connection);
+            
             SqlCommand komut2 = new SqlCommand("delete from Oda" + TxtOdaNo.Text, connection);
-            komut.ExecuteNonQuery();
             komut2.ExecuteNonQuery();
             connection.Close();
             listView1.Items.Clear();
@@ -104,9 +103,7 @@ namespace Hotel_Automation_v1
             DtpCikisTarihi.Text = "";
         }
 
-        private void BtnTemizle_Click(object sender, EventArgs e)
-        {
-        }
+        
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
