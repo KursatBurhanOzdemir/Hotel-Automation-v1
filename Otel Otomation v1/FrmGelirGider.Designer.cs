@@ -125,6 +125,7 @@ namespace Otel_Automation_v1
             this.LblFatura.Size = new System.Drawing.Size(55, 24);
             this.LblFatura.TabIndex = 7;
             this.LblFatura.Text = "00,00";
+            this.LblFatura.Click += new System.EventHandler(this.LblFatura_Click);
             // 
             // label9
             // 
@@ -142,6 +143,8 @@ namespace Otel_Automation_v1
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(169, 27);
             this.textBox1.TabIndex = 9;
+            this.textBox1.Text = "0";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label10
             // 

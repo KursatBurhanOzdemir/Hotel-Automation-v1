@@ -20,11 +20,13 @@ namespace Otel_Automation_v1
 
         private void veriler()
         {
+            listView1.Items.Clear();
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select * from Stoklar", connection);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
+                
                 ListViewItem ekle = new ListViewItem();
                 ekle.Text = sqlDataReader["Gida"].ToString();
                 ekle.SubItems.Add(sqlDataReader["Icecek"].ToString());
@@ -42,13 +44,48 @@ namespace Otel_Automation_v1
 
         private void FrmStoklar_Load(object sender, EventArgs e)
         {
+           
             veriler();
+            veriler2();
 
+        }
+        private void veriler2()
+        {
+            listView2.Items.Clear();
+            connection.Open();
+            SqlCommand sqlCommand2 = new SqlCommand("select * from Faturalar", connection);
+            SqlDataReader sqlDataReader2 = sqlCommand2.ExecuteReader();
+            while (sqlDataReader2.Read())
+            {
+
+                ListViewItem ekle2 = new ListViewItem();
+                ekle2.Text = sqlDataReader2["Elektirik"].ToString();
+                ekle2.SubItems.Add(sqlDataReader2["Su"].ToString());
+                ekle2.SubItems.Add(sqlDataReader2["Internet"].ToString());
+              
+                listView2.Items.Add(ekle2);
+
+            }
+            connection.Close();
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            
+            connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("insert into Stoklar(Gida,Icecek,TemizlikMalzemeleri,Diger) values('"+txtGıda.Text+"','"+TxtIcecek.Text+"','"+TxtTemizlik.Text+"','"+TxtDiger.Text+"')",connection);
+            sqlCommand.ExecuteNonQuery();
+            connection.Close();
+            veriler();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            SqlCommand sqlCommand3 = new SqlCommand("insert into Faturalar(Elektirik,Su,Internet) values('" + TxtElektirik.Text + "','" + TxtSu.Text + "','" + TxtInternet.Text + "')", connection);
+            sqlCommand3.ExecuteNonQuery();
+            connection.Close();
+            veriler2();
+
         }
     }
 }
